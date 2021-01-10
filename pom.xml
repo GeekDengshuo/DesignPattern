@@ -21,7 +21,15 @@
 
     <modules>
         <module>singleton</module>
+        <module>bulider</module>
+        <module>abstract-factory</module>
+        <module>factory-method</module>
+        <module>simple-factory</module>
+        <module>prototype</module>
+        <module>chain-of-responsibility</module>
     </modules>
+
+
 
     <dependencies>
         <dependency>
