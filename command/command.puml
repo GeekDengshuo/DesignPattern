@@ -1,0 +1,46 @@
+@startuml
+
+
+interface Command{
+    execute() :void
+    undo() :void
+}
+class Light{
+    on() :void
+    undo() :void
+}
+
+class LightOnCommand{
+    Light light
+    execute() :void
+    undo() :void
+}
+
+class LightOffCommand{
+    Light light
+    execute() :void
+    undo() :void
+}
+class RemoteController{
+    onCommands:command[]
+    offCommands:command[]
+}
+class noCommand{
+}
+class client{
+
+}
+client ..> RemoteController
+client ..> LightOnCommand
+client ..> LightOffCommand
+client ..> Light
+RemoteController o- Command
+LightOnCommand o-- Light
+LightOffCommand o-- Light
+Command <|.. LightOnCommand
+Command <|.. LightOffCommand
+Command <|.. noCommand
+
+
+
+@enduml
