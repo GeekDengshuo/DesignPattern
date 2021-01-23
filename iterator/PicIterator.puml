@@ -1,0 +1,26 @@
+@startuml
+class JFrame
+
+interface ActionListener
+
+class PicFrame
+
+class ViewPicture
+
+JFrame <|-- PicFrame
+ActionListener <|.. PicFrame
+
+ViewPicture <. PicFrame
+
+
+interface PicIterator
+
+interface PicSet
+
+class LatestPicIterator
+class LatestPicSet
+
+PicIterator <|.. LatestPicIterator
+PicSet <|.. LatestPicSet
+LatestPicSet <- LatestPicIterator
+@enduml

@@ -1,0 +1,53 @@
+@startuml
+
+interface iterator{
+     + hasNext():boolean
+     + next():Item
+
+}
+interface aggregate{
+    + createIterator():iterator
+}
+class concreteIterator{
+    + hasNext():boolean
+    + next():Item
+}
+class concreteAggregate{
+    + createIterator():iterator
+}
+
+class client
+
+iterator <|.. concreteIterator
+aggregate <|.. concreteAggregate
+
+iterator <-- client
+aggregate <-- client
+
+concreteAggregate <-- concreteIterator
+concreteIterator <.. concreteAggregate
+
+class JFrame
+
+interface ActionListener
+
+class PicFrame
+
+class ViewPicture
+
+JFrame <|-- PicFrame
+ActionListener <|.. PicFrame
+
+ViewPicture <. PicFrame
+
+
+interface PicIterator
+
+interface PicSet
+
+class LatestPicIterator
+class LatestPicSet
+
+PicIterator <|.. LatestPicIterator
+PicSet <|.. LatestPicSet
+@enduml
